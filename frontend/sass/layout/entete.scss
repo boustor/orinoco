@@ -1,0 +1,22 @@
+.entete {
+    background-color: $fondEntetePied;
+    width: 100%;
+    div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 1024px;
+        margin: auto;
+        height: 50px;
+        h1 {
+            padding-left: 10px;
+        }
+        span {
+            padding-right: 20px;
+            font-size: 20px;
+        }
+        @media (max-width: 1024px) {
+            width: 100%;
+        }
+    }
+}

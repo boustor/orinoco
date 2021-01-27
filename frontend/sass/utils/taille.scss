@@ -1,0 +1,5 @@
+@for $i from 1 through 20 {
+    .pw-#{$i*5} {
+        width: $i*5%;
+    }
+}
