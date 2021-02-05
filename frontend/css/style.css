@@ -83,20 +83,18 @@ body {
 }
 
 main {
-  width: 1024px;
   margin: auto;
   background-color: white;
 }
 
 .entete {
-  background-color: #f3e9f1;
+  background-color: #33ffc7;
   width: 100%;
 }
 .entete div {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 1024px;
   margin: auto;
   height: 50px;
 }
@@ -107,41 +105,85 @@ main {
   padding-right: 20px;
   font-size: 20px;
 }
-@media (max-width: 1024px) {
-  .entete div {
-    width: 100%;
-  }
-}
 
 footer {
   width: 100%;
   text-align: center;
   padding-top: 5px;
   padding-bottom: 5px;
-  background-color: #f3e9f1;
+  background-color: #33ffc7;
 }
-footer div ul {
+footer ul {
   list-style: none;
 }
-footer div ul li {
-  font-size: 10px;
+footer ul li {
+  font-size: 15px;
 }
 
 .affichageListe {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100%;
+  width: 1024px;
   padding-top: 10px;
   padding-bottom: 10px;
+  margin: auto;
 }
-.affichageListe table {
+.affichageListe div {
+  display: flex;
+  margin-bottom: 10px;
+}
+@media (max-width: 720px) {
+  .affichageListe div {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.affichageListe .nomPrix {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 1024px) {
+  .affichageListe {
+    width: 100%;
+  }
+}
+
+.titrePage {
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.produitImage {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.groupeLabel {
+  margin-bottom: 20px;
   width: 80%;
   margin: auto;
 }
-.affichageListe table th {
+.groupeLabel label {
+  display: inline-block;
+  width: 100px;
+}
+
+.bouton {
+  background-color: #4CAF50;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
   text-align: center;
-  font-size: 20px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  border-radius: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */

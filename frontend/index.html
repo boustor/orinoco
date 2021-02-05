@@ -6,60 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/orinoco.js"></script>
     <title>Orinoco</title>
 </head>
 
 <body>
     <header>
-        <div class="entete">
+        <nav class="entete">
             <div>
-                <h1><img src="images/orinoco.png" alt="Orinoco"></h1>
+                <h1><a href="index.html"><img src="images/orinoco.png" alt="Orinoco Orinoco, vente en ligne"></a></h1>
                 <span class="fas fa-shopping-cart"></span>
             </div>
-        </div>
+        </nav>
     </header>
+
     <main>
-        <div class="affichageListe">
-            <!-- Affichage de la liste des ours en peluche -->
-            <table>
-                <thead>
-                    <tr>
-                        <th colspan="3">Ours en peluche faits à la main</th>
-                    </tr>
-                </thead>
-                <tbody id="ours"></tbody>
-            </table>
-            <!-- Affichage de la liste des caméras vintage -->
-            <table>
-                <thead>
-                    <tr>
-                        <th colspan="3">caméras vintage</th>
-                    </tr>
-                </thead>
-                <tbody id="camera"></tbody>
-            </table>
-            <!-- Affichage de la liste des meubles en chêne. -->
-            <table>
-                <thead>
-                    <tr>
-                        <th colspan="3">meubles en chêne.</th>
-                    </tr>
-                </thead>
-                <tbody id="meuble"></tbody>
-            </table>
-        </div>
+        <h2 class="titrePage">Ours en peluche faits à la main</h2>
+        <div class="affichageListe" id="ours"></div>
     </main>
+
     <footer>
-        <div>
-            <ul>
-                <li>Orinoco</li>
-                <li>20 rue polytechnique</li>
-                <li>Paris</li>
-            </ul>
-        </div>
+        <ul>
+            <li>Orinoco</li>
+            <li>20 rue polytechnique</li>
+            <li>Paris</li>
+        </ul>
     </footer>
 </body>
 
 </html>
 
-<script src="orinoco.js"></script>
+<script src="js/index.js"></script>
