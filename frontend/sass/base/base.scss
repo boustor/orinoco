@@ -1,8 +1,12 @@
 body {
     margin: auto;
+    background-color: $fondsite;
 }
 
 main {
     margin: auto;
-    background-color: white;
 }
+
+a {
+    text-decoration: none;
+  }

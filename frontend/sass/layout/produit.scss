@@ -1,4 +1,38 @@
 .produitImage {
-    margin-top:20px;
+    margin-top: 20px;
     text-align: center;
+}
+
+.produit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 50px;
+    width: 70%;
+}
+
+@media screen and (max-width: 960px) {
+    .produit {
+        width: 100%;
+        margin-bottom:20px;
+        select {
+            text-align: center;
+        }
+
+    }
+    .groupeLabel {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        width:80%;
+        margin: 10px;;
+        label {
+            text-align:left;
+            display:inline;
+            width:auto;
+        }
+    }
 }

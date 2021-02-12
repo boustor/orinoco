@@ -1,3 +1,68 @@
+.groupeLabel {
+  margin-bottom: 20px;
+  width: 80%;
+  margin: auto;
+}
+.groupeLabel label {
+  display: inline-block;
+  width: 100px;
+}
+
+.posPanier {
+  position: relative;
+  margin-left: -25px;
+  margin-top: -45px;
+  z-index: 1;
+}
+.posPanier .nbPanier {
+  display: none;
+  border: 0px solid black;
+  border-radius: 10px;
+  width: 18px;
+  height: 18px;
+  background-color: mediumvioletred;
+  color: white;
+}
+.posPanier .nbPanier span {
+  position: relative;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  top: 2.5px;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.centrer {
+  text-align: center;
+}
+
+fieldset {
+  background-color: #e1e1e1;
+  max-width: 500px;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid #a3a3a3;
+}
+fieldset .legend {
+  margin-bottom: 0px;
+  margin-left: 16px;
+}
+
+input[type=text], input[type=email], select {
+  width: 100%;
+  padding: 6px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #a3a3a3;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=text]:focus, input[type=email]:focus, select:focus {
+  outline-width: 0;
+  background-color: #d1d1d1;
+}
+
 .pw-5 {
   width: 5%;
 }
@@ -80,28 +145,31 @@
 
 body {
   margin: auto;
+  background-color: #f1f1f1;
 }
 
 main {
   margin: auto;
-  background-color: white;
+}
+
+a {
+  text-decoration: none;
 }
 
 .entete {
-  background-color: #33ffc7;
+  background-color: white;
   width: 100%;
 }
 .entete div {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: auto;
-  height: 50px;
+  height: 100px;
 }
 .entete div h1 {
   padding-left: 10px;
 }
-.entete div span {
+.entete div div {
   padding-right: 20px;
   font-size: 20px;
 }
@@ -111,7 +179,7 @@ footer {
   text-align: center;
   padding-top: 5px;
   padding-bottom: 5px;
-  background-color: #33ffc7;
+  background-color: white;
 }
 footer ul {
   list-style: none;
@@ -122,34 +190,29 @@ footer ul li {
 
 .affichageListe {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.affichageListe .boxArticle {
+  width: 300px;
+  display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 1024px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin: auto;
+  background-color: white;
+  border-radius: 20px;
+  margin-right: 15px;
+  margin-bottom: 20px;
 }
-.affichageListe div {
+.affichageListe .boxArticle .affImage {
+  height: 130px;
   display: flex;
-  margin-bottom: 10px;
-}
-@media (max-width: 720px) {
-  .affichageListe div {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-}
-.affichageListe .nomPrix {
-  display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-@media (max-width: 1024px) {
-  .affichageListe {
-    width: 100%;
-  }
+.affichageListe .boxArticle div {
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .titrePage {
@@ -163,27 +226,72 @@ footer ul li {
   text-align: center;
 }
 
-.groupeLabel {
-  margin-bottom: 20px;
-  width: 80%;
+.produit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin: auto;
-}
-.groupeLabel label {
-  display: inline-block;
-  width: 100px;
+  margin-bottom: 50px;
+  width: 70%;
 }
 
-.bouton {
-  background-color: #4CAF50;
-  /* Green */
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
+@media screen and (max-width: 960px) {
+  .produit {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .produit select {
+    text-align: center;
+  }
+
+  .groupeLabel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 80%;
+    margin: 10px;
+  }
+  .groupeLabel label {
+    text-align: left;
+    display: inline;
+    width: auto;
+  }
+}
+input[type=button], input[type=submit], input[type=reset], button, .button {
+  padding: 5px 15px;
+  margin: 3px 4px;
   display: inline-block;
-  font-size: 12px;
-  border-radius: 10px;
+  color: #ffffff;
+  font-size: 15px;
+  cursor: pointer;
+  background: #4095ff;
+  background: linear-gradient(top, #4095ff 0%, #277ce6 100%);
+  background: -moz-linear-gradient(top, #4095ff 0%, #277ce6 100%);
+  background: -webkit-linear-gradient(top, #4095ff 0%, #277ce6 100%);
+  background: -o-linear-gradient(top, #4095ff 0%, #277ce6 100%);
+  border: 1px solid #338bf6;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25), inset 1px 1px 0px 0px rgba(255, 255, 255, 0.25);
+  -moz-box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25), inset 1px 1px 0px 0px rgba(255, 255, 255, 0.25);
+  -webkit-box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25), inset 1px 1px 0px 0px rgba(255, 255, 255, 0.25);
+  -o-box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25), inset 1px 1px 0px 0px rgba(255, 255, 255, 0.25);
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+}
+
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover, button:hover, .button:hover {
+  background: linear-gradient(top, #5aafff 0%, #4095ff 100%);
+  background: -moz-linear-gradient(top, #5aafff 0%, #4095ff 100%);
+  background: -webkit-linear-gradient(top, #5aafff 0%, #4095ff 100%);
+  background: -o-linear-gradient(top, #5aafff 0%, #4095ff 100%);
+}
+
+input[type=button]:active, input[type=submit]:active, input[type=reset]:active, button:active, .button:active {
+  opacity: 0.8;
 }
 
 /*# sourceMappingURL=style.css.map */

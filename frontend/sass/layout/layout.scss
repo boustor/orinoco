@@ -1,21 +1,37 @@
-.groupeLabel { 
+.groupeLabel {
     margin-bottom: 20px;
-    width:80%;
-    margin:auto; 
+    width: 80%;
+    margin: auto;
     label {
-        display:inline-block;
-        width:100px;
+        display: inline-block;
+        width: 100px;
+    }
+}
+.posPanier {
+    position:relative;
+    margin-left:-25px;
+    margin-top:-45px;
+    z-index:1;
+    .nbPanier {
+        display:none;
+        border: 0px solid black;
+        border-radius: 10px;
+        width: 18px;
+        height: 18px;      
+        background-color: mediumvioletred;
+        color: white;
+        span{
+            position:relative;
+            display:flex;
+            align-content: center;
+            justify-content: center;
+            top:2.5px;
+            font-size: 10px;
+            font-weight: bold;
+        }
     }
 }
 
-.bouton {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 10px 20px;
+.centrer {
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 12px;
-    border-radius: 10px;
 }

@@ -1,4 +1,7 @@
 @import './utils/variables.scss';
+@import './layout/layout.scss';
+@import './layout/fieldset.scss';
+@import './layout/input.scss';
 @import './utils/taille.scss';
 @import './base/base.scss';
 @import './layout/entete.scss';
@@ -6,4 +9,4 @@
 @import './layout/liste.scss';
 @import './layout/composant.scss';
 @import './layout/produit.scss';
-@import './layout/layout.scss';
+@import './layout/bouton.scss';

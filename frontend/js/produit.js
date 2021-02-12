@@ -3,48 +3,54 @@
 function detail(id) {
     fetch("http://localhost:3000/api/teddies/" + id)
         .then(response => response.json())
-        .then(json => {
+        .then(produit => {
             var listeCouleur = '';
-            var img = json.imageUrl;
-            var prix = montant(json.price);
+            var img = produit.imageUrl;
+            var prix = montant(produit.price);
             img = img.replace('.jpg', '_min.jpg');
-            document.getElementById('image').innerHTML = `<img src="${img}" alt="Ours ${json.name}"/>`;
-            document.getElementById('nom').innerHTML = `${json.name}`;
-            json.colors.forEach(c => {
+            document.getElementById('image').innerHTML = `<img src="${img}" alt="Ours ${produit.name}"/>`;
+            document.getElementById('nom').innerHTML = `${produit.name}`;
+            produit.colors.forEach(c => {
                 listeCouleur += `<option value="${c}">${c}</option>`;
             })
             document.getElementById('couleur').innerHTML = listeCouleur;
-            document.getElementById('description').innerHTML = `${json.description}`;
+            document.getElementById('description').innerHTML = `${produit.description}`;
             document.getElementById('prix').innerHTML = `${prix} €`;
-            document.getElementById('idp').value=json._id;
+            document.getElementById('idp').value = produit._id;
         })
         .catch(error => alert("Erreur : " + error));
 }
 
 /* ----- récupération de l'id ----- */
 
-var url = document.location.href;
-var x = url.indexOf("_id=", 0);
-var id = url.substr(x + 4);
+let url = document.location.href;
+let x = url.indexOf("_id=", 0);
+let id = url.substr(x + 4);
 detail(id);
 
 /* ----- on ecoute le bouton panier ----- */
 
-const elt = document.getElementById('butPanier'); 
-elt.addEventListener('click', function() {  
-    var id = document.getElementById('idp').value;      
-    alert("Id : "+id);             
+const elt = document.getElementById('butPanier');
+elt.addEventListener('click', function() {
+    var id = document.getElementById('idp').value;
+    // lecture storage pour recupérer deja saisi
+    contPanier = [];
+    var data = localStorage.getItem("panier");
+    if (data != null) {
+        data = JSON.parse(data);
+        data.forEach(el => {
+            contPanier.push(el);
+        });
+    }
+    // on rajoute l'ourson choisi
+    contPanier.push(id);
+    // on stock les informations 
+    var panier = JSON.stringify(contPanier);
+    localStorage.setItem("panier", panier);
+    nbPanier();
+
 });
 
 
-/*
-let tab = {
-    firstName: "name",
-    lastName: "last",
-    address: "adresse",
-    city: "ville",
-    email: "courriel"
-}
-let test = JSON.stringify(tab);
-localStorage.setItem("order", test);
-*/
+// on controle si quelque chose dans le panier
+nbPanier();
