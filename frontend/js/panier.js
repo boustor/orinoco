@@ -45,7 +45,7 @@ for (let i = 1; i <= nbLigne; i++) {
     let article = "article" + i;
     const elt = document.getElementById(article);
     elt.addEventListener("click", function() {
-        let qte = document.getElementById('qte' + i).value;
+        let qte = parseInt(document.getElementById('qte' + i).value);
         let id = document.getElementById('id' + i).value;
         correctionPanier(id, qte);
     });

@@ -44,25 +44,16 @@ function majQuantite(panier, id) {
 function correctionPanier(id, qte) {
 
     var panier = JSON.parse(localStorage.getItem("panier"));
-    let article = '';
-    let totQte = 0;
-    let montant = 0;
-    let ligne = 0;
 
-    /* on lit le tableau pour afficher les articles */
+    /* on recherche la ligne à modifier */
     panier.forEach(function(r) {
-        ligne++;
-        article += `
-        <div class="articlePanier" id="article${ligne}">
-            <span><input type="hidden" id="id${ligne}" value="${r.id}"></span>
-            <span class="panierNom">${r.nom}</span>
-            <span class="panierPrix">${r.prix} €</span>
-            <span class="panierQte"><input type="number" id="qte${ligne}" value="${r.qte}" class="panierQteInput" min="1" max="10"></span>
-        </div>
-        `
+        if (r["id"] == id) {
+            r["qte"] = qte;
+        }
 
-        totQte += r["qte"];
-        montant += r["qte"] * r["prix"];
+        //console.log(panier);
+        localStorage.setItem("panier", JSON.stringify(panier));
+        nbPanier();
     });
 
 }
