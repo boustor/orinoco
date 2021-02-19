@@ -32,25 +32,25 @@ detail(id);
 
 const elt = document.getElementById('butPanier');
 elt.addEventListener('click', function() {
-    let id = document.getElementById('idp').value;
-    let nom = document.getElementById('nom').innerHTML;
-    let couleur = document.getElementById('couleur').value;
-    let prix = document.getElementById('prix').innerHTML;
-    let qte = 1;
-    prix = prix.replace("€", "");
-    let ajoutPanier = { "id": id, "nom": nom, "couleur": couleur, "prix": prix, "qte": qte };
-
+    var id = document.getElementById('idp').value;
     // lecture storage pour recupérer deja saisi
-    let panier = JSON.parse(localStorage.getItem("panier")) || [];
-    // on va incrémenter la quantité si la ligne est déjà présente
-    let maj = majQuantite(panier, id)
-        // on rajoute la ligne uniquement si elle existe pas
-    if (maj == 0) panier.push(ajoutPanier);
-
+    contPanier = [];
+    var data = localStorage.getItem("panier");
+    if (data != null) {
+        data = JSON.parse(data);
+        data.forEach(el => {
+            contPanier.push(el);
+        });
+    }
+    // on rajoute l'ourson choisi
+    contPanier.push(id);
     // on stock les informations 
-    localStorage.setItem("panier", JSON.stringify(panier));
+    var panier = JSON.stringify(contPanier);
+    localStorage.setItem("panier", panier);
     nbPanier();
 
 });
 
+
+// on controle si quelque chose dans le panier
 nbPanier();

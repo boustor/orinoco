@@ -15,13 +15,15 @@
         <nav class="entete">
             <div>
                 <h1>
-                    <a href="index.html"><img src="images/orinoco.png" alt="Orinoco Orinoco, vente en ligne"></a>
+                    <a href="index.html"><img src="images/orinoco.png" alt="Orinoco, vente en ligne"></a>
                 </h1>
                 <a href="panier.html">
                     <div class="imgEntete">
                         <img src="images/cart.png" alt="Panier">
                         <div class="posPanier">
-                            <span id="affPanier" class="nbPanier"><span id="nbPanier"></span></span>
+                            <span id="affPanier" class="nbPanier">
+                                <span id="nbPanier"></span>
+                            </span>
                         </div>
                     </div>
                 </a>
@@ -30,36 +32,40 @@
     </header>
 
     <main>
-        <fieldset>
-            <legend>Produit(s) sélectionné(s)</legend>
-            <div id="ours"></div>
-        </fieldset>
-        <fieldset>
-            <legend>Informations contact</legend>
-            <div class="groupeLabel">
-                <label for="nom">Nom</label>
-                <input type="text" id="nom" placeholder="Nom" />
-            </div>
-            <div class="groupeLabel">
-                <label for="prenom">Prénom</label>
-                <input type="text" id="prenom" placeholder="Prénom" />
-            </div>
-            <div class="groupeLabel">
-                <label for="adresse">Adresse</label>
-                <input type="text" id="adresse" placeholder="Adresse" />
-            </div>
-            <div class="groupeLabel">
-                <label for="ville">Ville</label>
-                <input type="text" id="ville" placeholder="CP / Ville" />
-            </div>
-            <div class="groupeLabel">
-                <label for="email">Courriel</label>
-                <input type="email" id="email" placeholder="Courriel" />
-            </div>
-            <div class="centrer">
-                <input type="button" value="Valider la commande">
-            </div>
-        </fieldset>
+        <div class="corpsPanier">
+            <fieldset>
+                <legend>Produit(s) sélectionné(s)</legend>
+                <div id="ours" class="produitPanier"></div>
+                <input type="hidden" id="ligne" value="">
+            </fieldset>
+
+            <fieldset>
+                <legend>Informations contact</legend>
+                <div class="groupeLabel">
+                    <label for="nom">Nom</label>
+                    <input type="text" id="nom" placeholder="Nom" />
+                </div>
+                <div class="groupeLabel">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" id="prenom" placeholder="Prénom" />
+                </div>
+                <div class="groupeLabel">
+                    <label for="adresse">Adresse</label>
+                    <input type="text" id="adresse" placeholder="Adresse" />
+                </div>
+                <div class="groupeLabel">
+                    <label for="ville">Ville</label>
+                    <input type="text" id="ville" placeholder="CP / Ville" />
+                </div>
+                <div class="groupeLabel">
+                    <label for="email">Courriel</label>
+                    <input type="email" id="email" placeholder="Courriel" />
+                </div>
+                <div class="centrer">
+                    <input type="button" value="Valider la commande">
+                </div>
+            </fieldset>
+        </div>
     </main>
 
     <footer>

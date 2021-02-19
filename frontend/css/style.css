@@ -49,7 +49,9 @@ fieldset .legend {
   margin-left: 16px;
 }
 
-input[type=text], input[type=email], select {
+input[type=text],
+input[type=email],
+select {
   width: 100%;
   padding: 6px 20px;
   margin: 8px 0;
@@ -58,7 +60,21 @@ input[type=text], input[type=email], select {
   border-radius: 4px;
   box-sizing: border-box;
 }
-input[type=text]:focus, input[type=email]:focus, select:focus {
+input[type=text]:focus,
+input[type=email]:focus,
+select:focus {
+  outline-width: 0;
+  background-color: #d1d1d1;
+}
+
+input[type=number] {
+  text-align: right;
+  display: inline-block;
+  border: 1px solid #a3a3a3;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=number]:focus {
   outline-width: 0;
   background-color: #d1d1d1;
 }
@@ -292,6 +308,39 @@ input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover, but
 
 input[type=button]:active, input[type=submit]:active, input[type=reset]:active, button:active, .button:active {
   opacity: 0.8;
+}
+
+.corpsPanier {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.corpsPanier fieldset {
+  width: 320px;
+}
+
+.produitPanier {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.produitPanier .articlePanier {
+  display: flex;
+}
+.produitPanier .articlePanier .panierNom {
+  width: 180px;
+}
+.produitPanier .articlePanier .panierPrix {
+  width: 65px;
+  text-align: right;
+  padding-right: 15px;
+}
+.produitPanier .articlePanier .panierQte {
+  width: 50px;
+  text-align: center;
+}
+.produitPanier .articlePanier .panierQteInput {
+  width: 40px;
 }
 
 /*# sourceMappingURL=style.css.map */
