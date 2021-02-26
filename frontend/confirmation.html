@@ -34,14 +34,20 @@
         <p>Nous vous remercions d'avoir commandé chez Orinoco</p>
         <fieldset>
             <p> Commande numéro : <span id="noCde"></span></p>
+            <h3>adresse</h3>
+            <div id="adresse"></div>
+            <br>
             <fieldset>
                 <table>
-                    <tr>
-                        <th>Désignation</th>
-                        <th>Quantité</th>
-                        <th>Prix</th>
-                        <th>Montant</th>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>Désignation</th>
+                            <th>Quantité</th>
+                            <th>Prix</th>
+                            <th>Montant</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ligneProduit"></tbody>
                     <tr>
                         <th colspan="3">Total commande</th>
                         <th></th>
