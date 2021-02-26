@@ -1,11 +1,15 @@
-/* on format le prix */
+/* 
+    on format le prix 
+*/
 function montant(p) {
     let taille = p.toString().length - 2;
     let mt = p.toString().substr(0, taille) + "." + p.toString().substr(-2, 2);
     return mt
 }
 
-/* On affiche la quantité du panier */
+/* 
+    On affiche la quantité du panier 
+*/
 function nbPanier() {
     let data = JSON.parse(localStorage.getItem("panier")) || [];
     let nb = data.length;
@@ -24,7 +28,9 @@ function nbPanier() {
     }
 }
 
-/* Lecture du panier pour cumuler la quantité si le produit existe deja */
+/* 
+    Lecture du panier pour cumuler la quantité si le produit existe deja 
+*/
 function majQuantite(panier, id) {
     let nb = panier.length;
     let maj = 0;
@@ -40,20 +46,35 @@ function majQuantite(panier, id) {
     return maj;
 }
 
-/* Correction du panier et mise à jour du montant total et quantite */
+/* 
+    Correction du panier et mise à jour du montant total et quantite 
+*/
 function correctionPanier(id, qte) {
 
-    var panier = JSON.parse(localStorage.getItem("panier"));
-
+    let panier = JSON.parse(localStorage.getItem("panier"));
     /* on recherche la ligne à modifier */
     panier.forEach(function(r) {
         if (r["id"] == id) {
             r["qte"] = qte;
         }
-
         //console.log(panier);
         localStorage.setItem("panier", JSON.stringify(panier));
         nbPanier();
     });
 
+}
+/* 
+    Calcul montant et quantité 
+*/
+function montantQuantite() {
+    let panier = JSON.parse(localStorage.getItem("panier"));
+    let qte = 0;
+    let prix = 0;
+    panier.forEach(function(r) {
+        qte += r["qte"];
+        prix += parseFloat(r["prix"]) * r["qte"];
+    });
+
+    document.getElementById("montant").innerHTML = prix + " €";
+    document.getElementById("quantite").innerHTML = qte;
 }

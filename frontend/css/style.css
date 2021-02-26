@@ -226,6 +226,9 @@ footer ul li {
   align-items: center;
   justify-content: center;
 }
+.affichageListe .boxArticle .affImage img {
+  height: 100px;
+}
 .affichageListe .boxArticle div {
   margin-bottom: 10px;
   text-align: center;
@@ -241,6 +244,9 @@ footer ul li {
   margin-top: 20px;
   text-align: center;
 }
+.produitImage img {
+  height: 120px;
+}
 
 .produit {
   display: flex;
@@ -250,6 +256,10 @@ footer ul li {
   margin: auto;
   margin-bottom: 50px;
   width: 70%;
+}
+
+.groupeLabel select {
+  width: 150px;
 }
 
 @media screen and (max-width: 960px) {

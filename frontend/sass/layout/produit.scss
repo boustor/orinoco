@@ -1,6 +1,9 @@
 .produitImage {
     margin-top: 20px;
     text-align: center;
+    img {
+        height: 120px;
+    }
 }
 
 .produit {
@@ -13,26 +16,31 @@
     width: 70%;
 }
 
+.groupeLabel {
+    select {
+        width: 150px;
+    }
+}
+
 @media screen and (max-width: 960px) {
     .produit {
         width: 100%;
-        margin-bottom:20px;
+        margin-bottom: 20px;
         select {
             text-align: center;
         }
-
     }
     .groupeLabel {
         display: flex;
         flex-direction: column;
         justify-content: center;
         text-align: center;
-        width:80%;
-        margin: 10px;;
+        width: 80%;
+        margin: 10px;
         label {
-            text-align:left;
-            display:inline;
-            width:auto;
+            text-align: left;
+            display: inline;
+            width: auto;
         }
     }
 }

@@ -1,19 +1,19 @@
 fetch("http://localhost:3000/api/teddies/")
     .then(response => response.json())
     .then(produit => {
-        var listeProduit = '';
-        produit.forEach(r => {
+        let listeProduit = '';
+        produit.forEach(produit => {
 
-            var img = r.imageUrl;
-            var imag = img.replace('.jpg', '_min.jpg');
-            var prix = montant(r.price);
+            const { _id, imageUrl, name, price, description } = produit;
+
+            let prix = montant(price);
 
             listeProduit += `
                         <div class="boxArticle">
-                            <div class="affImage"><a href="produit.html?_id=${r._id}"><img src="${imag}" alt="ours ${r.name}" title="ours ${r.name}"></a></div>
-                            <div>${r.name}</div>
+                            <div class="affImage"><a href="produit.html?_id=${_id}"><img src="${imageUrl}" alt="ours ${name}" title="ours ${name}"></a></div>
+                            <div>${name}</div>
                             <div>${prix} €</div>
-                            <div>${r.description}</div>
+                            <div>${description}</div>
                         </div>
                         `
         })
