@@ -29,39 +29,41 @@
         </nav>
     </header>
     <main>
-        <h2>Confirmation de commande</h2>
-        <p>Nous vous confirmation avoir bien reçu votre commande, un récapitulatif de votre commande ci-dessous.</p>
-        <p>Nous vous remercions d'avoir commandé chez Orinoco</p>
-        <fieldset>
-            <p> Commande numéro : <span id="noCde"></span></p>
-            <h3>adresse</h3>
-            <div id="adresse"></div>
-            <br>
+        <div class="enteteConfirmation">
+            <h2>Confirmation de commande</h2>
+            <p>Nous vous confirmation avoir bien reçu votre commande, un récapitulatif de votre commande ci-dessous.</p>
+            <p>Nous vous remercions d'avoir commandé chez Orinoco</p>
+        </div>
+        <div class="recapitulatif">
             <fieldset>
-                <table>
+                <p> Commande numéro <br> <span id="noCde"></span></p>
+                <h3>Adresse</h3>
+                <div id="adresse"></div>
+                <br>
+                <table class="tableauProduit">
                     <thead>
                         <tr>
                             <th>Désignation</th>
-                            <th>Quantité</th>
-                            <th>Prix</th>
+                            <th>Qté</th>
                             <th>Montant</th>
                         </tr>
                     </thead>
                     <tbody id="ligneProduit"></tbody>
                     <tr>
-                        <th colspan="3">Total commande</th>
-                        <th></th>
+                        <td colspan="2">Total commande</td>
+                        <td id="totalCde"></td>
                     </tr>
                 </table>
             </fieldset>
-        </fieldset>
+        </div>
+        <br>
     </main>
     <footer>
         <ul>
             <li>Orinoco</li>
             <li>20 rue polytechnique</li>
             <li>Paris</li>
-        </ul>_
+        </ul>
     </footer>
 </body>
 

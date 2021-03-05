@@ -1,3 +1,6 @@
+/*
+    On récupère le contenu de commande 
+*/
 function affichageConfirmation() {
     let panier = JSON.parse(localStorage.getItem("commande"));
     console.log(panier);
@@ -5,7 +8,6 @@ function affichageConfirmation() {
     const contact = panier['contact'];
     const produit = panier['products'];
 
-    console.log(produit);
     affichageContact(contact);
     affichageProduit(produit);
 }
@@ -15,7 +17,7 @@ function affichageConfirmation() {
 function affichageContact(contact) {
     const adresse = `${contact.firstName} ${contact.lastName}
                       <br>
-                     ${contact.adresse}
+                     ${contact.address}
                      <br>
                      ${contact.city}
                      <br>
@@ -28,17 +30,41 @@ function affichageContact(contact) {
 */
 function affichageProduit(produit) {
     let ligneProduit = '';
-    produit.array.forEach(ligne => {
-        ligneProduit += `
+    let id = '';
+    let qte = 0;
+    let prix = '';
+    let leProduit = '';
+    let mtLigne = '';
+    let totalCde = 0;
+    produit.forEach(ligne => {
+         if (id != ligne._id && id != '') {
+            ligneProduit += leProduit;
+            qte = 0;
+        }
+        qte++;
+        prix = montant(ligne.price);
+        mtLigne = qte * prix;
+        totalCde += mtLigne
+        
+        leProduit = `
         <tr>
-            <td>${ligne.name}</td>
-            <td>1<td>
-            <td>${ligne.price}</td>
-            <td>2</td>
+            <td class="libelleProduit">${ligne.name}</td>
+            <td>${qte}</td>
+            <td>${new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(mtLigne)}</td>
         </tr>
         `
+        // -------------------------------
+        id = ligne._id;
     });
+    ligneProduit += leProduit;
+    totalCde = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(totalCde)
     document.getElementById('ligneProduit').innerHTML = ligneProduit;
+    document.getElementById('totalCde').innerHTML = totalCde;
+    
 }
-/* ***************************************************** */
+/* 
+    ***************************************************** 
+*/
 affichageConfirmation();
+localStorage.clear("panier");
+localStorage.clear("commande");

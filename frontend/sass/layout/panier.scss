@@ -11,22 +11,23 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    .articlePanier {
-        display: flex;
-        .panierNom {
-            width: 180px;
-        }
-        .panierPrix {
-            width: 65px;
-            text-align: right;
-            padding-right: 15px;
-        }
-        .panierQte {
-            width: 50px;
-            text-align: center;
-        }
-        .panierQteInput {
-            width: 40px;
-        }
+}
+
+.articlePanier {
+    display: flex;
+    .panierNom {
+        width: 180px;
+    }
+    .panierPrix {
+        width: 65px;
+        text-align: right;
+        padding-right: 15px;
+    }
+    .panierQte {
+        width: 50px;
+        text-align: center;
+    }
+    .panierQteInput {
+        width: 40px;
     }
 }

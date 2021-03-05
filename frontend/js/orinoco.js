@@ -11,13 +11,13 @@ function montant(p) {
     On affiche la quantité du panier 
 */
 function nbPanier() {
-    let data = JSON.parse(localStorage.getItem("panier")) || [];
-    let nb = data.length;
+    let panier = JSON.parse(localStorage.getItem("panier")) || [];
+    let nbProduit = panier.length;
     let qte = 0;
     // on cumul les quantités en parcourant le tableau
-    for (let i = 0; i < nb; i++) {
-        let tabLigne = data[i];
-        qte += tabLigne["qte"];
+    for (let i = 0; i < nbProduit; i++) {
+        let produit = panier[i];
+        qte += produit['qte'];
     }
     // si une quantité on affiche la quantité sur le caddie
     if (qte > 0) {
@@ -36,13 +36,13 @@ function majQuantite(panier, id) {
     let maj = 0;
 
     for (let i = 0; i < nb; i++) {
-        let tabLigne = panier[i];
-        if (tabLigne["id"] == id) {
-            tabLigne["qte"] += 1;
+        let produit = panier[i];
+        if (produit["id"] == id) {
+            produit["qte"] += 1;
             maj = 1;
+            break;
         }
     }
-
     return maj;
 }
 
@@ -53,11 +53,10 @@ function correctionPanier(id, qte) {
 
     let panier = JSON.parse(localStorage.getItem("panier"));
     /* on recherche la ligne à modifier */
-    panier.forEach(function(r) {
-        if (r["id"] == id) {
-            r["qte"] = qte;
+    panier.forEach(function(produit) {
+        if (produit["id"] == id) {
+            produit["qte"] = qte;
         }
-        //console.log(panier);
         localStorage.setItem("panier", JSON.stringify(panier));
         nbPanier();
     });
@@ -67,14 +66,27 @@ function correctionPanier(id, qte) {
     Calcul montant et quantité 
 */
 function montantQuantite() {
-    let panier = JSON.parse(localStorage.getItem("panier"));
+    let panier = JSON.parse(localStorage.getItem("panier")) || [];
     let qte = 0;
     let prix = 0;
-    panier.forEach(function(r) {
-        qte += r["qte"];
-        prix += parseFloat(r["prix"]) * r["qte"];
+    panier.forEach(function(produit) {
+        qte += produit["qte"];
+        prix += parseFloat(produit["prix"]) * produit["qte"];
     });
 
     document.getElementById("montant").innerHTML = prix + " €";
     document.getElementById("quantite").innerHTML = qte;
+}
+
+/*
+    Suppression d'une ligne dans le panier
+*/
+function supprimerProduit(id) {
+    let panier = JSON.parse(localStorage.getItem("panier"));
+    panier.forEach(function(produit, index) {
+        if (produit.id == id) {
+            panier.splice(index, 1);
+        }
+    });
+    localStorage.setItem("panier", JSON.stringify(panier));
 }

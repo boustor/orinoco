@@ -1,0 +1,49 @@
+.enteteConfirmation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p {
+        margin-top: 0px;
+        margin-left: 10px;
+        margin-right: 10px;
+        font-size: 15px;
+    }
+}
+
+.recapitulatif {
+    display: flex;
+    justify-content: center;
+    fieldset p {
+        text-align: center;
+        font-weight: bold;
+    }
+    h3 {
+        margin-bottom: 0px;
+    }
+    fieldset fieldset {
+        background-color: white;
+    }
+}
+
+.tableauProduit {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    th {
+        background-color: #6699cc;
+    }
+    tr td {
+        text-align: right;
+    }
+    .libelleProduit {
+        text-align: left;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .recapitulatif {
+        fieldset {
+            min-width: 600px;
+        }
+    }
+}

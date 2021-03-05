@@ -13,13 +13,20 @@
     justify-content: center;
     margin: auto;
     margin-bottom: 50px;
-    width: 70%;
+    width: 50%;
 }
 
 .groupeLabel {
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 15px;
     select {
         width: 150px;
     }
+}
+
+.groupeTitre {
+color:blue;
 }
 
 @media screen and (max-width: 960px) {
