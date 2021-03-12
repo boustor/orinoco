@@ -45,15 +45,20 @@ function validationCommande() {
         let nom = document.getElementById('nom').value;
         let prenom = document.getElementById('prenom').value;
         let adresse = document.getElementById('adresse').value;
+        let cp = document.getElementById('cp').value;
         let ville = document.getElementById('ville').value;
         let email = document.getElementById('email').value;
 
+
         if (nbProduit == 0) messageErreur += 'Le panier est vide \n';
-        if (nom == '') messageErreur += 'Il manque le nom \n';
-        if (prenom == '') messageErreur += 'Il manque le prenom \n';
-        if (adresse == '') messageErreur += 'Il manque l\'adresse \n';
-        if (ville == '') messageErreur += 'Il manque la ville \n';
-        if (email == '') messageErreur += 'Il manque l\'adresse courriel';
+        if (!nom.match(/[a-zA-Z]{3}/)) messageErreur += 'Le nom est pas incorrect ou manquant \n';
+        if (!prenom.match(/[a-zA-Z]{3}/)) messageErreur += 'le prénom est incorrect ou manquant \n';
+        if (!adresse.match(/[a-zA-Z0-9]{3}/)) messageErreur += 'l\'adresse est incorrect ou manquante \n';
+        if (!cp.match(/[0-9]{5}/)) messageErreur += 'Le code postal est incorrect ou manquant\n';
+        if (!ville.match(/[a-zA-Z]{5}/)) messageErreur += 'La ville est incorrect ou manquante\n';
+        if (!email.match(/[a-z0-9_\-\.]+@[a-z0-9_\-\.]+\.[a-z]+/i)) {
+            messageErreur += 'L\'adresse courriel est incorrect ou manquante';
+        }
 
         if (messageErreur != '') {
             alert(messageErreur);
@@ -71,7 +76,7 @@ function validationCommande() {
                 "firstName": prenom,
                 "lastName": nom,
                 "address": adresse,
-                "city": ville,
+                "city": cp+' '+ville,
                 "email": email
             },
             "products": tableId
@@ -97,9 +102,15 @@ function validationCommande() {
         (async() => {
             await 
         })();
-*/
+*/ 
+
     })
 
+}
+
+const callback = function(envoiCommande) {
+    localStorage.setItem("commande", JSON.stringify(envoiCommande));
+    window.location.href = "confirmation.html";
 }
 /* 
     on ecoute les champs quantites pour mise à jour 
