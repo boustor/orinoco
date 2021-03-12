@@ -76,34 +76,28 @@ function validationCommande() {
             },
             "products": tableId
         };
-        console.log(commande);
 
         /* on poste le document pour récupérer le numéro de commande */
-        /*
-                (async() => {
-                    const res = await fetch(`https://api.github.com/users/jameshibbard`);
-                    const json = await res.json();
-                    console.log(json.public_repos);
-                    console.log("Hello!");
-                })();
-        */
-        (async() => {
-            await fetch("http://localhost:3000/api/teddies/order", {
-                    method: "post",
-                    headers: {
-                        'Accept': 'application/json, text/plain, */*',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(commande),
-                }, 5000)
-                .then(response => response.json())
-                .then(envoiCommande => {
-                    localStorage.setItem("commande", JSON.stringify(envoiCommande));
-                })
-                .catch(err => console.log(err));
-            window.location.href = "confirmation.html";
-        })();
 
+        fetch("http://localhost:3000/api/teddies/order", {
+            method: "post",
+            headers: {
+                //'Accept': 'application/json, text/plain, */*',
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(commande),
+        })
+        .then(response => response.json())
+        .then(envoiCommande => {
+            localStorage.setItem("commande", JSON.stringify(envoiCommande));
+            window.location.href = "confirmation.html";
+        })
+        .catch(err => console.log(err));       
+/*
+        (async() => {
+            await 
+        })();
+*/
     })
 
 }

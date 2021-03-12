@@ -3,7 +3,6 @@
 */
 function affichageConfirmation() {
     let panier = JSON.parse(localStorage.getItem("commande"));
-    console.log(panier);
     document.getElementById('noCde').innerHTML = panier["orderId"];
     const contact = panier['contact'];
     const produit = panier['products'];
